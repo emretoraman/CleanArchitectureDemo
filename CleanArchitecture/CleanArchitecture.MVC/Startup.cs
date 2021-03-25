@@ -1,3 +1,4 @@
+using CleanArchitecture.Infrastructure.Data.Context;
 using CleanArchitecture.MVC.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,10 @@ namespace CleanArchitecture.MVC
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddDbContext<UniversityDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("UniversityDBConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
