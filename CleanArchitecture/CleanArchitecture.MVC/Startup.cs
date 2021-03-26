@@ -1,5 +1,6 @@
 using CleanArchitecture.Infrastructure.Data.Context;
 using CleanArchitecture.Infrastructure.IoC;
+using CleanArchitecture.MVC.Configurations;
 using CleanArchitecture.MVC.Data;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -38,6 +39,8 @@ namespace CleanArchitecture.MVC
                     Configuration.GetConnectionString("UniversityDBConnection")));
 
             services.AddMediatR(typeof(Startup));
+
+            services.RegisterAutoMapper();
 
             RegisterServices(services);
         }
