@@ -1,6 +1,7 @@
 using CleanArchitecture.Infrastructure.Data.Context;
 using CleanArchitecture.Infrastructure.IoC;
 using CleanArchitecture.MVC.Data;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -35,6 +36,8 @@ namespace CleanArchitecture.MVC
             services.AddDbContext<UniversityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("UniversityDBConnection")));
+
+            services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
         }

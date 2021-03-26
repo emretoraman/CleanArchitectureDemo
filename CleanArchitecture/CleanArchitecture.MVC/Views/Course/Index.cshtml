@@ -4,11 +4,14 @@
     <div class="row course-content">
         @foreach (var course in Model.Courses)
         {
-            <div class="course-image-container">
-                <div class="course-image" style="background-image:url(@course.ImageUrl)"></div>
-            </div>
+            <div style="display:inline-block;">
 
-            <span>@course.Name</span>
+                <div class="course-image-container">
+                    <div class="course-image" style="background-image:url(@course.ImageUrl)"></div>
+                </div>
+
+                <div style="text-align:center;">@course.Name</div>
+            </div>
         }
     </div>
 </div>
